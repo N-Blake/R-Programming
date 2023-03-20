@@ -1,0 +1,11 @@
+Package: TrueSummary
+Title: Provide more detailed summaries for data
+Version: 0.1
+Date: 2023-03-20
+Author: person("Nolan", "Blake", "nolanblake@usf.edu", role = c("aut", "cre"))
+Description: To provide a more indepth look into data sets by including and combining already 
+exsiting function such that more things can be complied into one function to save trouble from 
+dowloading and sourceing mutiple packages.
+Depends: R (>= 3.1.2)
+LazyData: true
+License: CC0
