@@ -1,0 +1,79 @@
+---
+title: "Assignment 12"
+author: "Nolan Blake"
+date: "2023-04-02"
+output: html_document
+---
+
+------------------------------------------------------------------------
+
+### ***Objective***
+
+clean and Reorganize a Data Set 
+
+------------------------------------------------------------------------
+
+### ***Set Working Directory***
+
+```{r}
+setwd("C:/Users/Nolan/Documents/USF Assignment Archive/2023 Spring/Visual Analitics")
+
+```
+
+### ***Load needed Libraries***
+
+```{r}
+
+library(readr)
+
+```
+
+### ***Load data***
+
+Make sure that the data is in a usable format Website here -\> <http://www2.census.gov/programs-surveys/popest/tables/2010-2011/state/totals/nst-est2011-01.csv>
+
+```{r}
+
+readURL<-"http://www2.census.gov/programs-surveys/popest/tables/2010-2011/state/totals/nst-est2011-01.csv"
+  dfPopulation <- read.csv(url(readURL))
+  dfPopulationv2<-as.data.frame(dfPopulation)
+  
+  
+```
+
+### ***Start cleaning/Get rid of useless rows***
+
+These couple of rows are just descriptions and are not usable for anything useful
+
+```{r}
+dfPopulationv2 <- dfPopulationv2[-1:-8,]
+dfPopulationv2 <- dfPopulationv2[-52:-58,]
+
+dfPopulationv2$stateName <- dfPopulationv2[,1]
+dfPopulationv2<-dfPopulationv2[,-1]
+
+#dfPopulationv2 <- dfPopulationv2[,-:-8]
+dfPopulationv2<-dfPopulationv2[,-5:-9]
+
+```
+
+### ***Rename the columns to something more useful***
+
+```{r}
+Topnames <-c("Census", "Estimate", "Pop2010", "Pop2011","StateName")
+colnames(dfPopulationv2) <-Topnames
+```
+
+### ***finish cleaning***
+
+make the row classes representative of whatthey are and get rid of unnecessary symbols print it out to make sure that it looks correct
+
+```{r}
+dfPopulationv2$Census<-as.numeric(gsub(",","",dfPopulationv2$Census))
+dfPopulationv2$Estimate<-as.numeric(gsub(",","",dfPopulationv2$Estimate))
+dfPopulationv2$Pop2010<-as.numeric(gsub(",","",dfPopulationv2$Pop2010))
+dfPopulationv2$Pop2011<-as.numeric(gsub(",","",dfPopulationv2$Pop2011))
+dfPopulationv2$StateName <- gsub("\\.",'',dfPopulationv2$StateName)
+
+dfPopulationv2
+```
