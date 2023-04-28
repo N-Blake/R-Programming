@@ -1,0 +1,17 @@
+Package: AdvancedStatsv.0.06
+Type: Package
+Title: Provide more detailed summaries for data (Title Case)
+Version: 0.0.6
+Date: 2023-04-20
+Author: person("Nolan", "Blake", "nolanblake@usf.edu", role = c("aut", "cre"))
+Maintainer: <nolanblake@usf.edu>
+Description: MTo provide a more indepth look into data sets by including and combining already 
+    exsiting function such that more things can be complied into one function to save trouble from 
+    dowloading and sourceing mutiple packages.
+Depends: R (>= 3.1.2)
+License:  CC0
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.2.3
+Imports: 
+    ggplot2,usethis
